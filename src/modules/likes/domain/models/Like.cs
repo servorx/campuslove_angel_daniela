@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace examen_csharp.src.modules.entidad.domain.models;
 
-public class Entidad
+public class Like
 {
-    
+    int Id { get; set; }
+
+    public void Like()
+    { 
+        
+    }
 }

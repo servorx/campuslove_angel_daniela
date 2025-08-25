@@ -12,23 +12,27 @@ CREATE TABLE IF NOT EXISTS usuarios (
     frase VARCHAR(255) NOT NULL
 ) ENGINE=INNODB;
 
-CREATE TABLE IF NOT EXISTS usuario_likes (
-    id_usuario INT NOT NULL,
-    id_like INT NOT NULL.
-    PRIMARY KEY(id_usuario)
-) ENGINE=INNODB;
-
 CREATE TABLE IF NOT EXISTS likes (
-    id_like INT NOT NULL,
-
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_emisor INT NOT NULL,
+    id_receptor INT NOT NULL,
+    -- si es id_emisor y el id_receptor se han dado like mutuamente el match es mutuo 
+    match BOOLEAN NOT NULL,
+    CONSTRAINT fk_id_emisor FOREIGN KEY id_emisor REFERENCES usuarios(id),
+    CONSTRAINT fk_id_receptor FOREIGN KEY id_receptor REFERENCES usuarios(id)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS dislikes (
-    id_usuario
+    id INT PRIMARY KEY AUTO_INCREMENT,
 ) ENGINE=INNODB;
 
+
+
+
+
+
 CREATE TABLE IF NOT EXISTS coincidencias (
-    id_usuario
+    id
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS gestor_usuarios (
@@ -39,16 +43,3 @@ CREATE TABLE IF NOT EXISTS interacciones (
     id 
 ) ENGINE=INNODB;
 
-
-
-CREATE TABLE IF NOT EXISTS personas (
-    id 
-) ENGINE=INNODB;
-
-CREATE TABLE IF NOT EXISTS personas (
-    id 
-) ENGINE=INNODB;
-
-CREATE TABLE IF NOT EXISTS personas (
-    id 
-) ENGINE=INNODB;
