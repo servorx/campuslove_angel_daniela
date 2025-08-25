@@ -2,14 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using examen_csharp.src.modules.usuario.domain.models;
+using campuslove_angel_daniela.src.modules.usuario.domain.models;
 
-namespace examen_csharp.src.modules.usuario.application.interfaces;
+namespace campuslove_angel_daniela.src.modules.usuario.application.interfaces;
 
 public interface IUsuarioRepository
 {
-    void Add(Usuario usuario);
-    Task<Usuario> GetById(int id);
-    Task<IEnumerable<Usuario>> GetAllAsync();
-    Task SaveAsync();
+    Task AddAsync(Usuario usuario);
+    Task UpdateAsync(Usuario usuario);
+    Task DeleteAsync(int id);
+    Task<Usuario?> GetByIdAsync(int id);
+    Task<Usuario?> GetByCorreoAsync(string correo);
+    Task<List<Usuario>> GetAllAsync();
 }

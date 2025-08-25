@@ -1,4 +1,4 @@
-using examen_csharp.src.modules.usuario.domain.models;
+using campuslove_angel_daniela.src.modules.usuario.domain.models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -7,19 +7,18 @@ public class UsuarioConfig : IEntityTypeConfiguration<Usuario>
 {
     public void Configure(EntityTypeBuilder<Usuario> builder)
     {
-        // Nombre de la tabla en la BD
         builder.ToTable("usuarios");
-
-        // Definir clave primaria
         builder.HasKey(u => u.Id);
-        builder.Property(u => u.Id).ValueGeneratedOnAdd();
-        // definir las tablas
-        builder.Property(u => u.Nombre).IsRequired().HasMaxLength(50);
-        builder.Property(u => u.Apellido).IsRequired().HasMaxLength(50);
-        builder.Property(u => u.Genero).IsRequired().HasMaxLength(15);
-        builder.Property(u => u.Carrera).IsRequired().HasMaxLength(40);
-        builder.Property(u => u.Intereses).IsRequired().HasMaxLength(200);
-        builder.Property(u => u.Frase).IsRequired().HasMaxLength(255);
+
+        builder.Property(u => u.Nombre).HasMaxLength(80).IsRequired();
+        builder.Property(u => u.Apellido).HasMaxLength(80).IsRequired();
+        builder.Property(u => u.Correo).HasMaxLength(80).IsRequired();
+        builder.Property(u => u.Contrasenia).HasMaxLength(40).IsRequired();
+        builder.Property(u => u.Edad).IsRequired();
+        builder.Property(u => u.Carrera).HasMaxLength(100);
+        builder.Property(u => u.Frase).HasMaxLength(255);
+        builder.Property(u => u.Orientacion).HasMaxLength(70).IsRequired();
+        builder.Property(u => u.Busqueda).HasMaxLength(40).IsRequired();
 
     }
 }

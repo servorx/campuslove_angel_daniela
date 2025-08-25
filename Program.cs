@@ -1,5 +1,5 @@
-﻿using examen_csharp.src.shared.helpers;
-using examen_csharp.src.ui;
+﻿using campuslove_angel_daniela.src.shared.helpers;
+using campuslove_angel_daniela.src.ui;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
