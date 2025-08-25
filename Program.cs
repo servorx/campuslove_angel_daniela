@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using examen_csharp.src.shared.helpers;
+using Microsoft.EntityFrameworkCore;
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var context = DbContextFactory.Create();
+    }
+}

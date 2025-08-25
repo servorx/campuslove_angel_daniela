@@ -1,0 +1,7 @@
+DROP DATABASE IF EXISTS examen_csharp;
+CREATE DATABASE IF NOT EXISTS examen_csharp;
+USE examen_csharp;
+
+CREATE TABLE IF NOT EXISTS table (
+    
+) ENGINE=INNODB;

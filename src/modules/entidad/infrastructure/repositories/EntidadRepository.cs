@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace examen_cs.src.modules.entidad.infrastructure.repositories;
+namespace examen_csharp.src.modules.entidad.infrastructure.repositories;
 public class EntidadRepository
 {
-    
+
 }

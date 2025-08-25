@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace examen_cs.src.shared.configurations;
-
+namespace examen_csharp.src.shared.configurations;
 public class EntidadConfig
 {
     

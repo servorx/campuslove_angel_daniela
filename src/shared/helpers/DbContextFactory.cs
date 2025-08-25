@@ -1,8 +1,8 @@
-using examen_cs.src.shared.context;
-using Microsoft.EntityFrameworkCore;
+using examen_csharp.src.shared.context;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
-namespace examen_cs.src.shared.helpers;
+namespace examen_csharp.src.shared.helpers; 
 public class DbContextFactory
 {
     public static AppDbContext Create()
@@ -22,6 +22,9 @@ public class DbContextFactory
         var minVersion = new Version(8, 0, 0);
         if (detectedVersion < minVersion)
         throw new NotSupportedException($"Versión de MySQL no soportada: {detectedVersion}. Requiere {minVersion} o superior.");
+        // Console.WriteLine($"🔍 MySQL detectado: {detectedVersion}");
+        // System.Console.WriteLine("presione una tecla para continuar...");
+        // Console.WriteLine();
         var options = new DbContextOptionsBuilder<AppDbContext>()
         .UseMySql(connectionString, new MySqlServerVersion(detectedVersion))
         .Options;

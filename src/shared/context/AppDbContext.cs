@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace examen_cs.src.shared.context;
+namespace examen_csharp.src.shared.context;
 
 public class AppDbContext : DbContext
 {
