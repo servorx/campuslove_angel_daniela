@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using examen_csharp.src.modules.usuario.domain.models;
+using campuslove_angel_daniela.src.modules.usuario.domain.models;
 
-namespace examen_csharp.src.modules.usuario.application.interfaces;
+namespace campuslove_angel_daniela.src.modules.usuario.application.interfaces;
 
 public interface IUsuarioService
 {

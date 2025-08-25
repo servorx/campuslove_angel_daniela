@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using campuslove_angel_daniela;
 
-namespace examen_csharp.src.ui;
+namespace campuslove_angel_daniela.src.ui;
 
 
 public class MenuPrincipal
 {
     public void MostrarBienvenida()
     {
+        Console.Clear();
         Console.WriteLine("===========================================");
         Console.WriteLine("      ❤︎ BIENVENID@ A CAMPUS LOVE  ❤︎        ");
         Console.WriteLine("   donde encontrarás el amor de tu vida!   ");
@@ -26,7 +27,7 @@ public class MenuPrincipal
         Console.WriteLine("             ❤︎ MENÚ PRINCIPAL  ❤︎          ");
         Console.WriteLine("===========================================");
         Console.WriteLine("1. Crear Usuario");
-        Console.WriteLine("2.Log In usuario");
+        Console.WriteLine("2. Log In usuario");
         Console.WriteLine("3. Salir");
     }
     public void EjecutarMenuPrincipal()

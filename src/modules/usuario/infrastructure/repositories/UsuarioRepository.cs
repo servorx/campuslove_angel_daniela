@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using examen_csharp.src.modules.usuario.application.interfaces;
-using examen_csharp.src.modules.usuario.domain.models;
-using examen_csharp.src.shared.context;
+using campuslove_angel_daniela.src.modules.usuario.application.interfaces;
+using campuslove_angel_daniela.src.modules.usuario.domain.models;
+using campuslove_angel_daniela.src.shared.context;
 using Microsoft.EntityFrameworkCore;
 
-namespace examen_csharp.src.modules.usuario.infrastructure.repositories;
+namespace campuslove_angel_daniela.src.modules.usuario.infrastructure.repositories;
 
 public class UsuarioRepository : IUsuarioRepository
 {

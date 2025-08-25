@@ -1,6 +1,6 @@
 using MySqlConnector;
 
-namespace examen_csharp.src.shared.helpers;
+namespace campuslove_angel_daniela.src.shared.helpers;
 public class MySqlVersionResolver
 {
     public static Version DetectVersion(string connectionString)

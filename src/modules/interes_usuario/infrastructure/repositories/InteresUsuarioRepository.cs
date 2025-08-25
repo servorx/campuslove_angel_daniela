@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace examen_csharp.src.modules.entidad.infrastructure.repositories;
-public class EntidadRepository
+public class InteresUsuarioRepository
 {
 
 }

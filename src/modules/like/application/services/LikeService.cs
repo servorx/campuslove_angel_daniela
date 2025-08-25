@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace examen_csharp.src.modules.entidad.domain.models;
+namespace campuslove_angel_daniela.src.modules.like.application.services;
 
-public class Entidad
+public class LikeService
 {
     
 }
