@@ -31,8 +31,6 @@ Mostrar el usuario con mas likes recibidos.
 
 
 
-fix config 
-fix namespace
 finish services
 finish repository
 finish entities
