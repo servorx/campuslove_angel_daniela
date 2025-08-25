@@ -11,8 +11,7 @@ public class Usuario
     public string? Carrera { get; set; }
     public string? Intereses { get; set; }
     public string? Frase { get; set; }
-    // relaciones foraneas con likes 
-    public Like like { get; set; } = null!;
+    // relaciones foraneas con likes
     // define el constructor
     public Usuario(
         string nombre,

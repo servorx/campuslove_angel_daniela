@@ -11,7 +11,6 @@ public class AppDbContext : DbContext
     }
     // en esta parte deben de ir los DbSet de cada entidad, este es un ejemplo 
     public DbSet<Usuario> Usuarios { get; set; }
-    public DbSet<Like> Likes { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

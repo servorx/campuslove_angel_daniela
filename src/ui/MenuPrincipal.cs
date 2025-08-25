@@ -26,7 +26,8 @@ public class MenuPrincipal
         Console.WriteLine("             ❤︎ MENÚ PRINCIPAL  ❤︎          ");
         Console.WriteLine("===========================================");
         Console.WriteLine("1. Crear Usuario");
-        Console.WriteLine("2. Salir");
+        Console.WriteLine("2.Log In usuario");
+        Console.WriteLine("3. Salir");
     }
     public void EjecutarMenuPrincipal()
     {
@@ -46,6 +47,10 @@ public class MenuPrincipal
                         menuCrearUsuario.MenuCrearUsuario();
                         break;
                     case 2:
+                        var menuLogInUsuario = new MenuLogIn();
+                        menuLogInUsuario.MenuLogInUsuario();
+                        break;
+                    case 3:
                         validate_program = false;
                         Console.WriteLine("Saliendo del programa. ¡Hasta luego!");
                         break;

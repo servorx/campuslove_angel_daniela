@@ -21,7 +21,5 @@ public class UsuarioConfig : IEntityTypeConfiguration<Usuario>
         builder.Property(u => u.Intereses).IsRequired().HasMaxLength(200);
         builder.Property(u => u.Frase).IsRequired().HasMaxLength(255);
 
-        builder.HasOne(u => u.like)
-            .WithOne(l => l.)
     }
 }
