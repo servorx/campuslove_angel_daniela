@@ -1,98 +1,110 @@
-## Examen elaborado por:
-- Ángel David Pinzón Serrano
-- Daniela Sofia Herrera  
+# ❤︎ Campus Love ❤︎  
+**Aplicación de emparejamiento en consola (C#)**  
 
-# Descripcion del proyecto
-Campus Love es una aplicación de consola en C# que simula un sistema de emparejamiento. El proyecto busca implementar un flujo completo donde los usuarios pueden registrarse, ver perfiles de otras personas, hacer “like” o “dislike” y revisar sus coincidencias (matches). 
+---
 
+## 📌 Autores  
+- **Ángel David Pinzón Serrano**  
+- **Daniela Sofía Herrera Rojas**  
 
-﻿﻿Se debe permitir la simulación de interacciones entre usuarios de forma iterativa, implementando estructuras de control, colecciones, patrones de diseño, principios SOLID, y formateo adecuado de datos.
+---
 
+## 📖 Descripción del Proyecto  
+**Campus Love** es una aplicación de consola en **C#** que simula un sistema de emparejamiento entre estudiantes de Campuslands.  
+El sistema permite registrar usuarios, visualizar perfiles, dar **“Like”** o **“Dislike”**, revisar coincidencias (**matches**) y consultar estadísticas de interacción.  
 
-Adicionalmente, se podrá agregar un sistema de "créditos de interacción" que limite la cantidad de likes por día, usando lógica con Math, validaciones y operadores.
+El proyecto está desarrollado aplicando:  
+- **Arquitectura limpia**  
+- **Principios SOLID**  
+- **Patrones de diseño**  
+- **Colecciones genéricas y LINQ**  
+- **Buenas prácticas de validación y formateo**  
 
+Adicionalmente, incorpora un sistema de **créditos de interacción** que limita la cantidad de likes diarios por usuario.
 
-Contexto y Especificaciones:
+---
 
+## 🎯 Objetivos del Proyecto  
+- Simular un sistema de emparejamiento universitario.  
+- Practicar y aplicar conceptos avanzados de **POO en C#**.  
+- Implementar un diseño basado en **patrones** y **principios SOLID**.  
+- Usar **LINQ** y **colecciones** para el manejo de datos.  
+- Fomentar un flujo de interacción amigable en consola.  
 
-Diseñar una aplicación de consola basada en arquitectura limpia, principios SOLID y patrones de diseño, que simula un sistema de emparejamiento completo entre usuarios.
+---
 
-El sistema debe permitir registrar:
+## ⚙️ Especificaciones del Sistema  
 
-    Registro de usuarios (nombre, edad, género, intereses, carrera, frase de perfil).
-    Visualización de perfiles disponibles (uno por uno) para hacer Like o Dislike.
-    Ver coincidencias si dos usuarios se dan Like mutuamente.
-    Listar todas las coincidencias de un usuario.
-    Limitar la cantidad de likes diarios por usuario con lógica de Math.
-    Mostrar estadísticas de interacción usando LINQ (por ejemplo, el usuario con más likes recibidos).
-    Usar CultureInfo y NumberFormat para mostrar créditos, nombres en formato título, etc.
+### ✔️ Funcionalidades principales  
+- Registro de usuarios (nombre, edad, género, intereses, carrera, frase de perfil).  
+- Visualización de perfiles disponibles (uno por uno) para dar **Like** o **Dislike**.  
+- Generación de coincidencias (**match**) si ambos usuarios se dan Like.  
+- Listado de todas las coincidencias de un usuario.  
+- Límite de **likes diarios** por usuario con lógica matemática.  
+- Estadísticas con LINQ:  
+  - Usuario con más likes recibidos.  
+  - Usuario con más matches.  
+  - Promedio de interacciones.  
 
+---
 
-Requisitos funcionales:
+## 📋 Requisitos  
 
+### ✅ Requisitos funcionales  
+- Menú en consola con las opciones:  
+  1. Registrarse como nuevo usuario.  
+  2. Ver perfiles y dar Like o Dislike.  
+  3. Ver mis coincidencias (matches).  
+  4. Ver estadísticas del sistema.  
+  5. Salir.  
+- Almacenamiento de usuarios e interacciones en **listas** o **diccionarios**.  
+- Simulación de múltiples usuarios (**modo multicliente ficticio**).  
+- Uso del **patrón Factory** para creación de usuarios o interacciones.  
+- Separación de responsabilidades aplicando **SOLID**.  
 
-    Menú en consola con las siguientes opciones:
-    Registrarse como nuevo usuario
-    Ver perfiles y dar Like o Dislike
-    Ver mis coincidencias (matches)
-    Ver estadísticas del sistema (usuarios con más likes, más matches, etc.)
-    Salir
+### ⚡ Requisitos no funcionales  
+- Interacción amigable, clara y fluida en consola.  
+- Clases organizadas por responsabilidades (**Usuario, Interaccion, MatchService, etc.**).  
+- Validación de entrada (**edad, texto, género, etc.**).  
+- Uso de conversiones y formateo:  
+  - `int.Parse`, `TryParse`  
+  - `ToUpper`, `ToLower`  
+  - `CultureInfo`, `NumberFormat`  
 
+---
 
-    Guardar usuarios y sus interacciones en listas o diccionarios
-    Permitir simulación de múltiples usuarios (modo multicliente ficticio).
-    Aplicar patrón Factory para creación de usuarios o interacciones.
-    Usar principios SOLID y separación clara de responsabilidades.
+## 📊 Diagramas  
 
+### 📌 Diagrama de Clases (ejemplo conceptual)  
+- **Usuario**  
+- **Like**  
+- **Intereses**  
+- **InteresesUsuario**  
+- **Dislike**  
 
-Requisitos no funcionales:
+---
 
+## 🛠️ Herramientas y Tecnologías  
+- **Lenguaje:** C#  
+- **Framework:** .NET Core 9.0  
+- **IDE sugerido:** Visual Studio Code  
+- **Control de versiones:** Git + GitHub  
 
-    Interacción con la consola de forma amigable, clara y fluida.
-    Código organizado, con clases separadas (Usuario, Interaccion, MatchService, etc.).
-    Separación clara entre lógica de validación, lógica de negocio y presentación.
-    Validación de entrada (edad, texto, género).
-    Uso de conversiones con int.Parse, TryParse, ToUpper, ToLower, etc.
-    Manejo adecuado de entrada de datos.
+---
 
-Diagramas
+## 💡 Sugerencias de implementación  
+- Usar `List<Usuario>` para guardar likes.  
+- Usar **LINQ** para:  
+  - Buscar matches.  
+  - Ordenar por likes.  
+  - Contar usuarios activos.  
+- Aplicar **patrón Strategy** para definir reglas de emparejamiento (por intereses, edad, carrera).  
+- Usar `Math.Min` y `Math.Max` para controlar límites de likes diarios.  
 
+---
 
-    Diagrama de clases: Usuario, Match, GestorUsuarios, Interaccion, etc.
-
-
-Herramientas y tecnologías:
-
-    Lenguaje: C#
-    Plataforma: .NET Core 8.0
-    IDE sugerido: VS Code
-
-
-Sugerencias:
-
-    Usa List<Usuario>, Dictionary<int, List<int>> para guardar likes.
-    Usa LINQ para buscar matches, ordenar por likes, contar usuarios.
-    Aplica el patrón Strategy para definir reglas de emparejamiento (por intereses, edad, carrera).
-    Usa Math.Min, Math.Max para controlar cantidad de likes diarios.
-
-
-Recursos:
-
-    Documentación LINQ
-    Material sobre patrones de diseño Refactoring Guru
-    Usuarios campus love
-
-
-
-Resultado esperado
-
-La entrega de esta asignación es un enlace a un repositorio en GitHub debe contener  el proyecto solicitado (es decir, un paquete por componente y cada componente con su estructura MVC). Adicionalmente a esto, los commits y el código deben ser realizados en inglés y el Readme debe estar organizado y haciendo una descripción adecuada del proyecto definiendo y especificando todos los aspectos en su totalidad.
-
-
-Junto con el código fuente se deben entregar (El trainer podría solicitar más o menos ítems de este apartado):
-
-    Diagrama de base de datos (ER) completo para todo el software.
-    Diagrama de clases completo para todo el software.
-    Archivos SQL  que soporten el diagrama.
-    Una lista de las tablas de base de datos que utiliza cada componente (una tabla podría aparecer en más de un componente).
-    Una lista de las clases que utiliza cada componente (una clase la podría utilizar más de un componente).
+## 📦 Entregables del Proyecto  
+- Código fuente completo en C#.  
+- Archivos **SQL** para la base de datos.  
+- Listado de **tablas de base de datos** utilizadas por cada componente.  
+- Listado de **clases y servicios** utilizados en cada módulo.  
