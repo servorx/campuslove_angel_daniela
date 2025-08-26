@@ -15,10 +15,11 @@ public class MenuPrincipal
     private readonly UsuarioService _usuarioService;
     private readonly InteresUsuarioService _interesUsuarioService;
     private readonly LikeService _likeService;
-    public MenuPrincipal(UsuarioService usuarioService, InteresUsuarioService interesUsuarioService)
+    public MenuPrincipal(UsuarioService usuarioService, InteresUsuarioService interesUsuarioService, LikeService likeService)
     {
         _usuarioService = usuarioService;
         _interesUsuarioService = interesUsuarioService;
+        _likeService = likeService;
     }
     public void MostrarBienvenida()
     {
@@ -61,7 +62,7 @@ public class MenuPrincipal
                         break;
                     case 2:
                         var menuLogInUsuario = new MenuLogIn(_usuarioService, _interesUsuarioService, _likeService);
-                        menuLogInUsuario.MenuLogInUsuario();
+                        await menuLogInUsuario.MenuLogInUsuario();
                         break;
                     case 3:
                         validate_program = false;

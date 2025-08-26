@@ -114,9 +114,12 @@ public class MenuUsuario
         // Pedir intereses al usuario (ej: separados por coma)
         Console.Write("Ingrese sus intereses separados por coma: ");
         string? interesesInput = Console.ReadLine();
-        var interesesList = interesesInput?.Split(",")
+        var interesesList = interesesInput?
+            .Split(",", StringSplitOptions.RemoveEmptyEntries)
             .Select(i => i.Trim())
-            .ToList();
+            // comienza como una lista vacia
+            .ToList() ?? new List<string>();
+
 
         Console.Clear();
         Console.WriteLine("seguro que quieres crear el usuario con los siguietnes datos?");

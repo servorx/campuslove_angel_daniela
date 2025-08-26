@@ -10,23 +10,7 @@ revisar matches (si a mi me ha dado like la misma persona a la que le di like)
 
 
 
-
-
-Menu principal:
-
-Crear usuario
-Salir del programa
-
-Funcionalidad de crear usuario:
-Ingresar todos los datos del usuario e ingresar al MenuUsuario
-
-MenuUsuario:
-
-Ver todas las personas
-Dar likes o dislike (mostrar persona por persona y dar like o no, limitar la cantidad de likes)
-Ver coincidencias si dos usuarios se dan Like mutuamente. (matches)
-Listar todas las coincidencias de un usuario.
-Mostrar el usuario con mas likes recibidos.
+arreglar el flujo del menu creandole su clase dedicada
 
 
 
