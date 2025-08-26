@@ -6,6 +6,7 @@ using campuslove_angel_daniela;
 using campuslove_angel_daniela.src.modules.interes_usuario.application.services;
 using campuslove_angel_daniela.src.modules.like.application.services;
 using campuslove_angel_daniela.src.modules.usuario.application.services;
+using examen_csharp.src.modules.configuracion.application.services;
 
 namespace campuslove_angel_daniela.src.ui;
 
@@ -15,11 +16,13 @@ public class MenuPrincipal
     private readonly UsuarioService _usuarioService;
     private readonly InteresUsuarioService _interesUsuarioService;
     private readonly LikeService _likeService;
-    public MenuPrincipal(UsuarioService usuarioService, InteresUsuarioService interesUsuarioService, LikeService likeService)
+    private readonly ConfiguracionService _configuracionService;
+    public MenuPrincipal(UsuarioService usuarioService, InteresUsuarioService interesUsuarioService, LikeService likeService, ConfiguracionService configuracionService)
     {
         _usuarioService = usuarioService;
         _interesUsuarioService = interesUsuarioService;
         _likeService = likeService;
+        _configuracionService = configuracionService;
     }
     public void MostrarBienvenida()
     {
@@ -61,7 +64,7 @@ public class MenuPrincipal
                         await menuCrearUsuario.MenuCrearUsuario();
                         break;
                     case 2:
-                        var menuLogInUsuario = new MenuLogIn(_usuarioService, _interesUsuarioService, _likeService);
+                        var menuLogInUsuario = new MenuLogIn(_usuarioService, _interesUsuarioService, _likeService, _configuracionService);
                         await menuLogInUsuario.MenuLogInUsuario();
                         break;
                     case 3:

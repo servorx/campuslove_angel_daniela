@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS likes (
     id_emisor INT NOT NULL,
     id_receptor INT NOT NULL,
     es_match BOOLEAN NOT NULL,
+    fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_id_emisor_likes FOREIGN KEY (id_emisor) REFERENCES usuarios(id),
     CONSTRAINT fk_id_receptor_likes FOREIGN KEY (id_receptor) REFERENCES usuarios(id)
 ) ENGINE=INNODB;
@@ -46,9 +47,20 @@ CREATE TABLE IF NOT EXISTS dislikes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_emisor INT NOT NULL,
     id_receptor INT NOT NULL,
+    fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_id_emisor_dislikes FOREIGN KEY (id_emisor) REFERENCES usuarios(id),
     CONSTRAINT fk_id_receptor_dislikes FOREIGN KEY (id_receptor) REFERENCES usuarios(id)
 ) ENGINE=INNODB;
+
+-- se usa una tabla para poder establecer límites de likes diarios
+CREATE TABLE IF NOT EXISTS configuracion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    clave VARCHAR(50) NOT NULL UNIQUE,
+    valor INT NOT NULL
+);
+
+-- Insert inicial con límite global de likes diarios
+INSERT INTO configuracion (clave, valor) VALUES ('max_likes_por_dia', 5);
 
 INSERT INTO usuarios (nombre, apellido, edad, genero, carrera, frase, orientacion, busqueda, correo, contrasenia) VALUES
 ('Alejandro', 'López', 25, 'Masculino', 'Ingeniería en Sistemas', 'El código es mi lenguaje.', 'Heterosexual', 'Relación seria', 'alejandro@email.com', 'pass123'),

@@ -4,16 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using campuslove_angel_daniela.src.modules.like.application.services;
 using campuslove_angel_daniela.src.modules.usuario.application.services;
+using examen_csharp.src.modules.configuracion.application.services;
 
 namespace examen_csharp.src.ui;
 public class MenuFunciones
 {
     private readonly UsuarioService _usuarioService;
     private readonly LikeService _likeService;
-    public MenuFunciones(UsuarioService usuarioService, LikeService likeService)
+    private readonly ConfiguracionService _configuracionService;
+    public MenuFunciones(UsuarioService usuarioService, LikeService likeService, ConfiguracionService configuracionService)
     {
         _usuarioService = usuarioService;
         _likeService = likeService;
+        _configuracionService = configuracionService;
     }
     public async Task MenuPrincipalUsuario(int usuarioId)
     {
@@ -59,7 +62,7 @@ public class MenuFunciones
             case 2:
                 VerTodasLasPersonas();
                 int personaId = LeerNumero("Ingrese el ID de la persona a la que quiere reaccionar: ");
-                DarLikeODislike(usuarioId, personaId);
+                await DarLikeODislike(usuarioId, personaId);
                 break;
 
             case 3:
@@ -72,7 +75,7 @@ public class MenuFunciones
                 break;
 
             case 5:
-                MostrarUsuarioMasLikes();
+                await MostrarUsuarioMasLikes();
                 break;
 
             case 6:
@@ -111,6 +114,15 @@ public class MenuFunciones
     // Dar Like o Dislike
     private async Task DarLikeODislike(int usuarioId, int personaId)
     {
+        int maxLikes = await _configuracionService.ObtenerMaxLikesPorDiaAsync();
+        int likesHoy = await _likeService.ContarLikesHoyAsync(usuarioId);
+
+        if (likesHoy >= maxLikes)
+        {
+            Console.WriteLine($"❌ Has alcanzado tu límite de {maxLikes} likes por hoy.");
+            return;
+        }
+
         Console.Write("¿Desea dar Like (L) o Dislike (D)? ");
         string? reaccion = Console.ReadLine()?.ToUpper();
 

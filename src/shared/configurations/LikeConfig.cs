@@ -19,6 +19,10 @@ public class LikeConfig : IEntityTypeConfiguration<Like>
         // define los nombres de las columnas
         builder.Property(l => l.IdEmisor).HasColumnName("id_emisor");
         builder.Property(l => l.IdReceptor).HasColumnName("id_receptor");
+        builder.Property(l => l.Fecha)
+            .IsRequired()
+            .HasColumnType("datetime")
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.HasOne(l => l.Emisor)
                 .WithMany(u => u.LikesEnviados)

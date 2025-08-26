@@ -22,4 +22,10 @@ public class LikeService
     public async Task<IEnumerable<Like>> GetLikesDeUsuarioAsync(int usuarioId) => await _likeRepository.GetLikesDeUsuarioAsync(usuarioId);
     public async Task<IEnumerable<Like>> GetMatchesAsync(int usuarioId) => await _likeRepository.GetMatchesAsync(usuarioId);
     public async Task<Usuario?> GetUsuarioConMasLikesAsync() => await _likeRepository.GetUsuarioConMasLikesAsync();
+    public async Task<int> ContarLikesHoyAsync(int usuarioId)
+    {
+        var hoy = DateTime.UtcNow.Date;
+        return await _likeRepository.ContarLikesAsync(usuarioId, hoy);
+    }
+
 }

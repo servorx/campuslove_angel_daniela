@@ -86,5 +86,10 @@ public class LikeRepository
             .FirstOrDefaultAsync();
         return usuario;
     }
-
+    public async Task<int> ContarLikesAsync(int usuarioId, DateTime fecha)
+    {
+        return await _context.Likes
+            .Where(l => l.IdEmisor == usuarioId && l.EsMatch && l.Fecha.Date == fecha)
+            .CountAsync();
+    }
 }

@@ -4,6 +4,7 @@ using campuslove_angel_daniela.src.modules.interes.domain.models;
 using campuslove_angel_daniela.src.modules.interes_usuario.domain.models;
 using campuslove_angel_daniela.src.modules.like.domain.models;
 using campuslove_angel_daniela.src.modules.usuario.domain.models;
+using examen_csharp.src.modules.configuracion.domain.models;
 using Microsoft.EntityFrameworkCore;
 
 namespace campuslove_angel_daniela.src.shared.context;
@@ -19,6 +20,7 @@ public class AppDbContext : DbContext
     public DbSet<InteresUsuario> InteresesUsuarios { get; set; }
     public DbSet<Like> Likes { get; set; }
     public DbSet<Dislike> Dislikes { get; set; }
+    public DbSet<Configuracion> Configuraciones { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

@@ -11,6 +11,11 @@ public class DislikeConfig : IEntityTypeConfiguration<Dislike>
         builder.ToTable("dislikes");
         builder.HasKey(d => d.Id);
 
+        builder.Property(l => l.Fecha)
+            .IsRequired()
+            .HasColumnType("datetime")
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            
         builder.HasOne(d => d.Emisor)
                 .WithMany(u => u.DislikesEnviados)
                 .HasForeignKey(d => d.IdEmisor)

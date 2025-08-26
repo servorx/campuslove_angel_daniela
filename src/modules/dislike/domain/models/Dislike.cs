@@ -11,6 +11,7 @@ public class Dislike
     public int Id { get; set; }
     public int IdEmisor { get; set; }
     public int IdReceptor { get; set; }
+    public DateTime Fecha { get; set; }
 
     // Relaciones
     public Usuario Emisor { get; set; } = null!;
@@ -19,13 +20,14 @@ public class Dislike
     {
 
     }
-    public Dislike(Usuario emisor, Usuario receptor)
+    public Dislike(Usuario emisor, Usuario receptor, DateTime fecha)
     {
         Emisor = emisor;
         Receptor = receptor;
+        Fecha = fecha;
     }
     public override string ToString()
     {
-        return $"{Id} | {IdEmisor} | {IdReceptor}";
+        return $"{Id} | {IdEmisor} | {IdReceptor} | {Fecha}";
     }
 }

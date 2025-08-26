@@ -16,4 +16,5 @@ public interface IEntidadService
     Task<IEnumerable<Like>> GetLikesDeUsuarioAsync(int usuarioId);
     Task<IEnumerable<Like>> GetMatchesAsync(int usuarioId);
     Task<Like> GetUsuarioConMasLikesAsync();
+    Task<int> ContarLikesHoyAsync(int usuarioId);
 }
