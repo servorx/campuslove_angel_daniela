@@ -1,9 +1,11 @@
 
 using campuslove_angel_daniela.src.modules.like.domain.models;
+using campuslove_angel_daniela.src.modules.usuario.domain.models;
 using campuslove_angel_daniela.src.shared.context;
 using Microsoft.EntityFrameworkCore;
 
 namespace campuslove_angel_daniela.src.modules.like.infrastructure.repositories;
+
 public class LikeRepository
 {
     private readonly AppDbContext _context;
@@ -47,7 +49,7 @@ public class LikeRepository
             IdEmisor = emisorId,
             IdReceptor = receptorId,
             // si el receptor ya dio like al emisor, el match es true
-            EsMatch = likeReceptor != null 
+            EsMatch = likeReceptor != null
         };
 
         await _context.Likes.AddAsync(nuevoLike);
@@ -74,4 +76,15 @@ public class LikeRepository
             .Include(l => l.Receptor)
             .Where(l => (l.IdEmisor == usuarioId || l.IdReceptor == usuarioId) && l.EsMatch)
             .ToListAsync();
+    public async Task<Usuario?> GetUsuarioConMasLikesAsync()
+    {
+        var usuario = await _context.Likes
+            .Where(l => l.EsMatch == true)
+            .GroupBy(l => l.Receptor)
+            .OrderByDescending(g => g.Count())
+            .Select(g => g.Key)
+            .FirstOrDefaultAsync();
+        return usuario;
+    }
+
 }

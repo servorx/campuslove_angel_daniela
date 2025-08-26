@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using campuslove_angel_daniela.src.modules.interes_usuario.application.interfaces;
 using campuslove_angel_daniela.src.modules.interes_usuario.domain.models;
 using campuslove_angel_daniela.src.shared.context;
 using Microsoft.EntityFrameworkCore;
 
-namespace examen_csharp.src.modules.entidad.infrastructure.repositories;
-public class InteresUsuarioRepository
+namespace campuslove_angel_daniela.src.modules.interes_usuario.infrastructure.repositories;
+public class InteresUsuarioRepository : IInteresUsuarioRepository
 {
     private readonly AppDbContext _context;
     public InteresUsuarioRepository(AppDbContext context) => _context = context;
