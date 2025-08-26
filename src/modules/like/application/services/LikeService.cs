@@ -19,4 +19,5 @@ public class LikeService
     public async Task EliminarLikeAsync(int id) => await _likeRepository.DeleteAsync(id);
     public async Task<IEnumerable<Like>> GetLikesDeUsuarioAsync(int usuarioId) => await _likeRepository.GetLikesDeUsuarioAsync(usuarioId);
     public async Task<IEnumerable<Like>> GetMatchesAsync(int usuarioId) => await _likeRepository.GetMatchesAsync(usuarioId);
+    public async Task<Like?> GetUsuarioConMasLikesAsync() => await _likeRepository.GetUsuarioConMasLikesAsync();
 }

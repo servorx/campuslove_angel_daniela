@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using campuslove_angel_daniela;
 using campuslove_angel_daniela.src.modules.interes_usuario.application.services;
+using campuslove_angel_daniela.src.modules.like.application.services;
 using campuslove_angel_daniela.src.modules.usuario.application.services;
 
 namespace campuslove_angel_daniela.src.ui;
@@ -13,7 +14,7 @@ public class MenuPrincipal
 {
     private readonly UsuarioService _usuarioService;
     private readonly InteresUsuarioService _interesUsuarioService;
-
+    private readonly LikeService _likeService;
     public MenuPrincipal(UsuarioService usuarioService, InteresUsuarioService interesUsuarioService)
     {
         _usuarioService = usuarioService;
@@ -59,7 +60,7 @@ public class MenuPrincipal
                         await menuCrearUsuario.MenuCrearUsuario();
                         break;
                     case 2:
-                        var menuLogInUsuario = new MenuLogIn(_usuarioService);
+                        var menuLogInUsuario = new MenuLogIn(_usuarioService, _interesUsuarioService, _likeService);
                         menuLogInUsuario.MenuLogInUsuario();
                         break;
                     case 3:

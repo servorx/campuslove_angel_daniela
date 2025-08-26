@@ -108,4 +108,11 @@ public class UsuarioService : IUsuarioService
 
         return PasswordHasher.VerifyPassword(contrasenia, usuario.Contrasenia);
     }
+    public async Task<Usuario?> GetUsuarioPorCredencialesAsync(string email, string password)
+    {
+        var usuarios = await _usuarioRepository.GetAllAsync(); 
+        return usuarios.FirstOrDefault(u =>
+            u.Correo == email &&
+            PasswordHasher.VerifyPassword(password, u.Contrasenia));
+    }
 }
