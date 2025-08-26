@@ -13,7 +13,7 @@ public class UsuarioConfig : IEntityTypeConfiguration<Usuario>
         builder.Property(u => u.Nombre).HasMaxLength(80).IsRequired();
         builder.Property(u => u.Apellido).HasMaxLength(80).IsRequired();
         builder.Property(u => u.Correo).HasMaxLength(80).IsRequired();
-        builder.Property(u => u.Contrasenia).HasMaxLength(40).IsRequired();
+        builder.Property(u => u.Contrasenia).HasMaxLength(150).IsRequired();
         builder.Property(u => u.Edad).IsRequired();
         builder.Property(u => u.Carrera).HasMaxLength(100);
         builder.Property(u => u.Frase).HasMaxLength(255);

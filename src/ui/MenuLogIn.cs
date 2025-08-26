@@ -1,8 +1,13 @@
 
+using campuslove_angel_daniela.src.modules.usuario.application.services;
+using campuslove_angel_daniela.src.modules.usuario.domain.models;
+
 namespace campuslove_angel_daniela.src.ui;
 
 public class MenuLogIn
 {
+    private readonly UsuarioService _usuarioService;
+    public MenuLogIn(UsuarioService usuarioService) =>_usuarioService = usuarioService;
     public void MenuLogInUsuario()
     {
         Console.Clear();
@@ -28,9 +33,8 @@ public class MenuLogIn
         Console.WriteLine("Presiona cualquier tecla para continuar...");
         Console.ReadKey();
     }
-
-    private bool AutenticarUsuario(string? email, string? password)
+    private bool AutenticarUsuario(string email, string password)
     {
-        throw new NotImplementedException();
+        return _usuarioService.VerificarLoginAsync(email, password).Result;
     }
 }

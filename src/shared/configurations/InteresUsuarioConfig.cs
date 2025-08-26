@@ -11,6 +11,13 @@ public class InteresUsuarioConfig : IEntityTypeConfiguration<InteresUsuario>
         builder.ToTable("intereses_usuarios");
         builder.HasKey(iu => new { iu.IdUsuario, iu.IdIntereses });
 
+        // define el nombre de las columnas
+        builder.Property(iu => iu.IdUsuario)
+            .HasColumnName("id_usuario");
+
+        builder.Property(iu => iu.IdIntereses)
+            .HasColumnName("id_interes"); 
+        // define las relaciones
         builder.HasOne(iu => iu.Usuario)
                 .WithMany(u => u.InteresesUsuarios)
                 .HasForeignKey(iu => iu.IdUsuario);

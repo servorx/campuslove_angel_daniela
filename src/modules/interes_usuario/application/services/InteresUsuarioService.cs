@@ -6,7 +6,7 @@ using campuslove_angel_daniela.src.modules.interes_usuario.application.interface
 using campuslove_angel_daniela.src.modules.interes_usuario.domain.models;
 
 namespace campuslove_angel_daniela.src.modules.interes_usuario.application.services;
-public class InteresUsuarioService
+public class InteresUsuarioService : IInteresUsuarioService
 {
     private readonly IInteresUsuarioRepository _repository;
 

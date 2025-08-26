@@ -7,13 +7,14 @@ CREATE TABLE IF NOT EXISTS usuarios(
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(80) NOT NULL,
     apellido VARCHAR(80) NOT NULL,
-    correo VARCHAR(80) NOT NULL,
-    constrasenia VARCHAR(40) NOT NULL,
     edad INT NOT NULL,
+    genero VARCHAR(10) NOT NULL,
     carrera VARCHAR(100),
     frase VARCHAR (255),
     orientacion VARCHAR(70) NOT NULL, 
-    busqueda VARCHAR(40) NOT NULL
+    busqueda VARCHAR(40) NOT NULL,
+    correo VARCHAR(80) NOT NULL,
+    contrasenia VARCHAR(150) NOT NULL
 ) ENGINE=INNODB;
 
 -- esto corresponde a los intereses que se coloca en tabla aparte porque un usuario puede tener mas de un interes
@@ -26,10 +27,10 @@ CREATE TABLE IF NOT EXISTS intereses(
 -- tabla intermedia por la relacion de intereses y usuarios de muchos a muchos
 CREATE TABLE IF NOT EXISTS intereses_usuarios(
     id_usuario INT NOT NULL,
-    id_intereses INT NOT NULL,
-    PRIMARY KEY (id_usuario, id_intereses),
+    id_interes INT NOT NULL,
+    PRIMARY KEY (id_usuario, id_interes),
     CONSTRAINT id_usuario_iu FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
-    CONSTRAINT id_intereses_iu  FOREIGN KEY (id_intereses) REFERENCES intereses(id)
+    CONSTRAINT id_intereses_iu  FOREIGN KEY (id_interes) REFERENCES intereses(id)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS likes (
